@@ -1,4 +1,4 @@
-﻿#Working with WMI
+﻿#region Working with WMI
 
 #Get WMI Instance
 $WMIServices = Get-WmiObject -Namespace root\cimv2 -Class Win32_Service
@@ -13,7 +13,9 @@ $winrm.ChangeStartMode('Manual')
 #Get specific WMI CLass
 $class = Get-WmiObject -Namespace root\cimv2 -Class win32_service -List
 
-#Working with CIM
+#endregion
+
+#region Working with CIM
 
 #Get CIM Instance
 $winrmFromCIM = Get-CimInstance -ClassName Win32_Service -Namespace root\cimv2 -Filter 'Name = "WinRM"'
@@ -33,3 +35,5 @@ Invoke-CimMethod -InputObject $winrmFromCIM -MethodName ChangeStartMode -Argumen
 #Remoting with CIM
 $cimsession = New-CimSession -ComputerName lon-cl1
 $soft = Get-CimInstance -CimSession $cimsession -ClassName Win32_Product -Namespace root\Cimv2
+
+#endregion
