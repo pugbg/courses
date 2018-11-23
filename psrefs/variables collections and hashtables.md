@@ -13,7 +13,7 @@ Remove-Variable -Name var3 -ErrorAction SilentlyContinue
 
 # Working with some .Net Types
 
-###Working with dates
+### Working with dates
 ```powershell
 $da = get-date
 "11.21.2018 13:00:00" -as [datetime]::new
